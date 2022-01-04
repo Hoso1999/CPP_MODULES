@@ -8,15 +8,15 @@ Contact getContact()
     std::string nickName;
     std::string phoneNumber;
     std::string darkestSecret;
-    std::cout << "First Name: ";
-    std::cin >> firstName;
-    std::cout << "Last Name: ";
-    std::cin >> lastName;
-    std::cout << "Nickname: ";
-    std::cin >> nickName;
-    std::cout << "Phone Number: ";
+    std::cout << "First Name: " << std::endl;
+    std::getline(std::cin, firstName);
+    std::cout << "Last Name: " << std::endl;
+    std::getline(std::cin, lastName);
+    std::cout << "Nickname: " << std::endl;
+    std::getline(std::cin, nickName);
+    std::cout << "Phone Number: " << std::endl;
     std::cin >> phoneNumber;
-    std::cout << "Darkest Secret: ";
+    std::cout << "Darkest Secret: " << std::endl;
     std::cin >> darkestSecret;
     contact.setFirstName(firstName);
     contact.setLastName(lastName);
@@ -33,8 +33,9 @@ int main()
 
     while (true)
     {
-        std::cout << "Enter the command: ";
+        std::cout << "Enter the command: " << std::endl;
         std::cin >> cmd;
+
         if (cmd == "EXIT")
             break ;
         else if (cmd == "ADD")
@@ -45,8 +46,15 @@ int main()
         }
         else if (cmd == "SEARCH")
         {
+            int index;
+
             phonebook.print();
+            std::cout << "Enter contact index: " << std::endl;
+            std::cin >> index;
+            phonebook.print(index);
         }
+        else
+            std::cout << "Wrong command" << std::endl;
     }
     
 }

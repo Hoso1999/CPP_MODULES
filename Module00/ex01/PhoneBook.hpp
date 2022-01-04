@@ -8,13 +8,13 @@
 
 class PhoneBook
 {
-    private:
     int     top;
     Contact contacts[8];
     public:
         PhoneBook();
         void add(Contact contact);
         void print();
+        void print(int);
 };
 
 

@@ -19,7 +19,77 @@ void PhoneBook::add(Contact contact)
 
 void PhoneBook::print()
 {
-    std::cout << std::setfill(' ') << "index" << std::setw(10) << "first name" << std::setw(10) << "last name" << std::setw(10) << "nickname" << std::endl;
-    // for (size_t i = 0; i < this->top; ++i)
-    //     std::cout << i << std::setw(10) << this->contacts[i].getFirstName() << std::setw(10) << this->contacts[i].getLastName() << std::setw(10) << this->contacts[i].getNickName() << std::endl;
+    std::cout << std::setfill(' ') << std::setw(13) << "index | ";
+    std::cout << std::setfill(' ') << std::setw(13) << "first name | ";
+    std::cout << std::setfill(' ') << std::setw(13) << "last name | ";
+    std::cout << std::setfill(' ') << std::setw(13) << "nickname   ";
+    std::cout << std::endl;
+
+    for (size_t i = 0; i < this->top + 1; ++i)
+    {
+        std::string firstName = this->contacts[i].getFirstName();
+        std::string lastName = this->contacts[i].getLastName();
+        std::string nickName = this->contacts[i].getNickName();
+        if (firstName.size() > 10)
+        {
+            firstName.erase(8, firstName.size() - 9);
+            firstName += ".";
+        }
+        if (lastName.size() > 10)
+        {
+            lastName.erase(8, lastName.size() - 9);
+            lastName += ".";
+        }
+        if (nickName.size() > 10)
+        {
+            nickName.erase(8, nickName.size() - 9);
+            nickName += ".";
+        }
+        std::cout << std::right;
+        std::cout << std::setfill(' ') << std::setw(10) << i << " | ";
+        std::cout << std::right;
+        std::cout << std::setfill(' ') << std::setw(10) << firstName << " | ";
+        std::cout << std::right;
+        std::cout << std::setfill(' ') << std::setw(10) << lastName << " | ";
+        std::cout << std::right;
+        std::cout << std::setfill(' ') << std::setw(10) << nickName << "   ";
+        std::cout << std::endl;
+    }
+}
+
+void PhoneBook::print(int index)
+{
+    std::string firstName = this->contacts[index].getFirstName();
+    std::string lastName = this->contacts[index].getLastName();
+    std::string nickName = this->contacts[index].getNickName();
+    if (firstName.size() > 10)
+    {
+        firstName.erase(8, firstName.size() - 9);
+        firstName += ".";
+    }
+    if (lastName.size() > 10)
+    {
+        lastName.erase(8, lastName.size() - 9);
+        lastName += ".";
+    }
+    if (nickName.size() > 10)
+    {
+        nickName.erase(8, nickName.size() - 9);
+        nickName += ".";
+    }
+    std::cout << std::setfill(' ') << std::setw(13) << "index | ";
+    std::cout << std::setfill(' ') << std::setw(13) << "first name | ";
+    std::cout << std::setfill(' ') << std::setw(13) << "last name | ";
+    std::cout << std::setfill(' ') << std::setw(13) << "nickname   ";
+    std::cout << std::endl;
+
+    std::cout << std::right;
+    std::cout << std::setfill(' ') << std::setw(10) << index << " | ";
+    std::cout << std::right;
+    std::cout << std::setfill(' ') << std::setw(10) << firstName << " | ";
+    std::cout << std::right;
+    std::cout << std::setfill(' ') << std::setw(10) << lastName << " | ";
+    std::cout << std::right;
+    std::cout << std::setfill(' ') << std::setw(10) << nickName << "   ";
+    std::cout << std::endl;
 }
