@@ -15,6 +15,7 @@ class PhoneBook
         void add(Contact contact);
         void print();
         void print(int);
+        int size();
 };
 
 

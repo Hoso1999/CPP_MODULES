@@ -8,15 +8,15 @@ Contact getContact()
     std::string nickName;
     std::string phoneNumber;
     std::string darkestSecret;
-    std::cout << "First Name: " << std::endl;
-    std::getline(std::cin, firstName);
-    std::cout << "Last Name: " << std::endl;
-    std::getline(std::cin, lastName);
-    std::cout << "Nickname: " << std::endl;
-    std::getline(std::cin, nickName);
-    std::cout << "Phone Number: " << std::endl;
+    std::cout << "First Name: ";
+    std::cin >> firstName;
+    std::cout << "Last Name: ";
+    std::cin >> lastName;
+    std::cout << "Nickname: ";
+    std::cin >> nickName;
+    std::cout << "Phone Number: ";
     std::cin >> phoneNumber;
-    std::cout << "Darkest Secret: " << std::endl;
+    std::cout << "Darkest Secret: ";
     std::cin >> darkestSecret;
     contact.setFirstName(firstName);
     contact.setLastName(lastName);
@@ -33,10 +33,9 @@ int main()
 
     while (true)
     {
-        std::cout << "Enter the command: " << std::endl;
+        std::cout << "CMD$> ";
         std::cin >> cmd;
-
-        if (cmd == "EXIT")
+        if (cmd == "EXIT" || cmd == "")
             break ;
         else if (cmd == "ADD")
         {
@@ -49,8 +48,19 @@ int main()
             int index;
 
             phonebook.print();
-            std::cout << "Enter contact index: " << std::endl;
-            std::cin >> index;
+            while (true)
+            {
+                std::cout << "Enter contact index: ";
+                std::cin >> index;
+                if (std::cin.fail())
+                {
+                    std::cout << "Contact index must be number" << std::endl;
+                    std::cin.clear();
+                    std::cin.ignore(256,'\n');
+                }
+                else
+                    break ;
+            }
             phonebook.print(index);
         }
         else

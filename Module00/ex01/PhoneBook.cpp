@@ -4,6 +4,10 @@ PhoneBook::PhoneBook()
     : top(-1)
 {
 }
+int PhoneBook::size()
+{
+    return this->top + 1;
+}
 
 void PhoneBook::add(Contact contact)
 {
@@ -25,7 +29,7 @@ void PhoneBook::print()
     std::cout << std::setfill(' ') << std::setw(13) << "nickname   ";
     std::cout << std::endl;
 
-    for (size_t i = 0; i < this->top + 1; ++i)
+    for (size_t i = 0; (int)i < this->top + 1; ++i)
     {
         std::string firstName = this->contacts[i].getFirstName();
         std::string lastName = this->contacts[i].getLastName();
@@ -59,6 +63,8 @@ void PhoneBook::print()
 
 void PhoneBook::print(int index)
 {
+    if (index > this->top)
+        return ;
     std::string firstName = this->contacts[index].getFirstName();
     std::string lastName = this->contacts[index].getLastName();
     std::string nickName = this->contacts[index].getNickName();
