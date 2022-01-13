@@ -5,11 +5,12 @@
 
 class Materia : public AMateria
 {
-    private:
-        /* data */
     public:
-        Materia(/* args */);
-        ~Materia();
+        Materia( void );
+        Materia( const std::string& );
+        virtual ~Materia();
+        virtual AMateria* clone( void ) const;
+        virtual void use( ICharacter& );
 };
 
 
