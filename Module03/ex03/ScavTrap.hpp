@@ -10,8 +10,12 @@ class ScavTrap : virtual public ClapTrap
     public:
         ScavTrap( const std::string& );
         virtual ~ScavTrap();
+        ScavTrap( const ScavTrap& );
+
         void guardGate( void );
-        virtual void attack( std::string const& target );
+        virtual void attack( std::string const& );
+
+        ScavTrap& operator=( const ScavTrap& );
 };
 
 

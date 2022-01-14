@@ -10,7 +10,30 @@ ScavTrap::ScavTrap( const std::string& name )
     std::cout << "ScavTrap < " << name << " > is created." << std::endl;
 }
 
-ScavTrap::ScavTrap( void ) {}
+ScavTrap::ScavTrap( void )
+    : ClapTrap("ScavTrap")
+{
+    hitpoints = 100;
+    enegyPoints = 50;
+    attackDamage = 20;
+    std::cout << "ScavTrap < " << name << " > is created." << std::endl;
+}
+
+ScavTrap::ScavTrap( const ScavTrap& scav )
+{
+    *this = scav;
+    std::cout << "ScavTrap < " << name << " > is created." << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=( const ScavTrap& scav )
+{
+    name = scav.name;
+    hitpoints = scav.hitpoints;
+    enegyPoints = scav.enegyPoints;
+    attackDamage = scav.attackDamage;
+    std::cout << "ScavTrap < " << name << " > is created." << std::endl;
+    return *this;
+}
 
 ScavTrap::~ScavTrap()
 {

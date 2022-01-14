@@ -14,11 +14,14 @@ class AMateria
     public:
         AMateria( std::string const& );
         AMateria( void );
+        AMateria( const AMateria& );
         virtual ~AMateria();
         //Returns the materia type
         std::string const& getType( void ) const;
         virtual AMateria* clone( void ) const = 0;
         virtual void use( ICharacter& );
+
+        AMateria& operator=( const AMateria& );
 };
 
 

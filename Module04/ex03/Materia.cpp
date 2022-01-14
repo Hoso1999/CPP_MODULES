@@ -11,6 +11,17 @@ AMateria* Materia::clone( void ) const
     return new Materia(type);
 }
 
+Materia::Materia( const Materia& materia )
+{
+    *this = materia;
+}
+
+Materia& Materia::operator=( const Materia& materia )
+{
+    Materia(materia.getType());
+    return *this;
+}
+
 void Materia::use( ICharacter& character )
 {
     std::cout << character.getName() << " uses the < ";

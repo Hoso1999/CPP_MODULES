@@ -11,8 +11,9 @@ class Brain
         Brain( void );
         Brain( const Brain& );
         Brain( const std::string[] );
-        Brain& operator=( const Brain& );
         ~Brain();
+
+        Brain& operator=( const Brain& );
 };
 
 

@@ -10,6 +10,17 @@ void Ice::use( ICharacter& character )
     std::cout << character.getName() << " *" << std::endl;
 }
 
+Ice::Ice( const Ice& ice )
+{
+    *this = ice;
+}
+
+Ice& Ice::operator=( const Ice& )
+{
+    Ice();
+    return *this;
+}
+
 AMateria* Ice::clone( void ) const
 {
     return new Ice();

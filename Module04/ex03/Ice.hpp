@@ -7,9 +7,13 @@ class Ice : public Materia
 {
     public:
         Ice( void );
+        Ice( const Ice& );
         ~Ice();
+
         void use( ICharacter& );
         AMateria* clone( void ) const;
+
+        Ice& operator=( const Ice& );
 };
 
 

@@ -4,6 +4,17 @@ Cure::Cure( void )
     : Materia("cure")
 {}
 
+Cure::Cure( const Cure& cure )
+{
+    *this = cure;
+}
+
+Cure& Cure::operator=( const Cure& )
+{
+    Cure();
+    return *this;
+}
+
 void Cure::use( ICharacter& character )
 {
     std::cout <<  "* heals " << character.getName();

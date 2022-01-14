@@ -11,9 +11,11 @@ class Cat : public Animal
     public:
         Cat( void );
         Cat( const Cat& );
-        Cat& operator=( const Cat& );
         ~Cat();
+
         void makeSound( void ) const; 
+
+        Cat& operator=( const Cat& );
 };
 
 

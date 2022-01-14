@@ -12,9 +12,11 @@ class Dog : public Animal
     public:
         Dog( void );
         Dog( const Dog& );
-        Dog& operator=( const Dog& );
         ~Dog();
+
         void makeSound( void ) const;
+
+        Dog& operator=( const Dog& );
 };
 
 

@@ -18,6 +18,7 @@ class Character : public ICharacter
         void equip( AMateria* );
         void unequip( int );
         void use( int, ICharacter& );
+
         Character& operator=( const Character& );
 };
 

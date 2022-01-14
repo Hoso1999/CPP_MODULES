@@ -14,10 +14,14 @@ class ClapTrap
         unsigned int attackDamage;
     public:
         ClapTrap( const std::string& );
+        ClapTrap( const ClapTrap& );
         virtual ~ClapTrap();
+
         virtual void attack( std::string const& );
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+        void takeDamage( unsigned int );
+        void beRepaired( unsigned int );
+
+        ClapTrap& operator=( const ClapTrap& );
 };
 
 
