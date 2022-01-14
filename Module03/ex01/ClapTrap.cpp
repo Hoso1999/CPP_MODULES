@@ -6,6 +6,27 @@ ClapTrap::ClapTrap( const std::string& name )
     std::cout << "ClapTrap < " << name << " > is created." << std::endl;
 }
 
+ClapTrap::ClapTrap( void )
+    : name("ClapTrap"), hitpoints(10), enegyPoints(10), attackDamage(0)
+{
+    std::cout << "Claptrap < " << name << " > is created" << std::endl;
+}
+
+ClapTrap::ClapTrap( const ClapTrap& clap )
+{
+    *this = clap;
+    std::cout << "Claptrap < " << name << " > is created" << std::endl;
+}
+
+
+ClapTrap& ClapTrap::operator=( const ClapTrap& clap )
+{
+    name = clap.name;
+    hitpoints = clap.hitpoints;
+    enegyPoints = clap.enegyPoints;
+    attackDamage = clap.attackDamage;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap < " << name << " > is destroyed." << std::endl;
