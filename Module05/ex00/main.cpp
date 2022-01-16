@@ -5,17 +5,21 @@ int main()
 {
     try
     {
-        Beuraucrat b(1);
-        Beuraucrat b1(150);
+        Beuraucrat b("a", 1);
+        Beuraucrat b1("b", 150);
 
         std::cout << b << std::endl;
         std::cout << b1 << std::endl;
-        // Beuraucrat b1(0); // Beuraucrat::GradeTooHighException()
-        Beuraucrat b2(151); // Beuraucrat::GradeTooLowException()
+        // Beuraucrat b3("invalid", 0); // Beuraucrat::GradeTooHighException()
+        Beuraucrat b2("invalid", 151); // Beuraucrat::GradeTooLowException()
     }
-    catch( const std::string& e )
+    catch( Beuraucrat::GradeTooHighException& e )
     {
-        std::cerr << e << std::endl;
+        std::cerr << e.what() << std::endl;
+    }
+    catch( Beuraucrat::GradeTooLowException& e )
+    {
+        std::cerr << e.what() << std::endl;
     }
     
     return 0;

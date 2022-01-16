@@ -7,15 +7,15 @@ Dog::Dog( void )
 }
 
 Dog::Dog( const Dog& dog )
-    : Animal(dog.type), brain(dog.brain)
 {
     std::cout << "Copy Dog" << std::endl;
+    *this = dog;
 }
 
 Dog& Dog::operator=( const Dog& dog )
 {
-    type = dog.type;
-    brain = dog.brain;
+    if (this != &dog)
+        brain = dog.brain;
     return *this;
 }
 

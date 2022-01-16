@@ -15,9 +15,10 @@ Ice::Ice( const Ice& ice )
     *this = ice;
 }
 
-Ice& Ice::operator=( const Ice& )
+Ice& Ice::operator=( const Ice& ice )
 {
-    Ice();
+    if (this != &ice)
+        Ice();
     return *this;
 }
 

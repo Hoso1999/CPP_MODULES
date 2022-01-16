@@ -7,15 +7,15 @@ Cat::Cat( void )
 }
 
 Cat::Cat( const Cat& cat )
-    : Animal(cat.type), brain(cat.brain)
 {
     std::cout << "Copy Cat" << std::endl;
+    *this = cat;
 }
 
 Cat& Cat::operator=( const Cat& cat )
 {
-    type = cat.type;
-    brain = cat.brain;
+    if (this != &cat)
+        brain = cat.brain;
     return *this;
 }
 

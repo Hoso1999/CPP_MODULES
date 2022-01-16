@@ -3,23 +3,41 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
+#include "Form.hpp"
+
+
+class Form;
 
 class Beuraucrat
 {
+    Beuraucrat( void );
     const std::string name;
     int grade;
     public:
-        Beuraucrat( int );
-        ~Beuraucrat();
+        Beuraucrat( const std::string&, int );
+        Beuraucrat( const Beuraucrat& );
+        virtual ~Beuraucrat();
 
-        static const std::string GradeTooHighException( void );
-        static const std::string GradeTooLowException( void );
+        struct GradeTooHighException : std::exception
+        {
+            const char *what( void ) const throw();
+        };
 
+        struct GradeTooLowException : std::exception
+        {
+            const char *what( void ) const throw();
+        };
+        
         const std::string& getName( void ) const;
         int getGrade( void ) const;
 
         void increment( void );
         void decrement( void );
+
+        void signForm( Form& ) const;
+
+        Beuraucrat& operator=( const Beuraucrat& );
 };
 
     std::ostream& operator<<(std::ostream &, const Beuraucrat& );

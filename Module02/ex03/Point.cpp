@@ -14,8 +14,11 @@ Point::Point( const Point& p )
 
 Point& Point::operator=( const Point& p )
 {
-    x = p.x;
-    y = p.y;
+    if (this != &p)
+    {
+        x = p.x;
+        y = p.y;
+    }
     return *this;
 }
 

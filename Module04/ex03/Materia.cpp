@@ -18,7 +18,8 @@ Materia::Materia( const Materia& materia )
 
 Materia& Materia::operator=( const Materia& materia )
 {
-    Materia(materia.getType());
+    if (this != &materia)
+        Materia(materia.getType());
     return *this;
 }
 

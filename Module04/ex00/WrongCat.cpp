@@ -4,13 +4,15 @@ WrongCat::WrongCat( void )
     : WrongAnimal("WrongCat")
 {}
 
-WrongCat::WrongCat( const WrongCat& WrongCat )
-    : WrongAnimal(WrongCat.type)
-{}
-
-WrongCat& WrongCat::operator=( const WrongCat& WrongCat )
+WrongCat::WrongCat( const WrongCat& wrongCat )
 {
-    type = WrongCat.type;
+    *this = wrongCat;
+}
+
+WrongCat& WrongCat::operator=( const WrongCat& wrongCat )
+{
+    if (this != &wrongCat)
+        type = wrongCat.type;
     return *this;
 }
 

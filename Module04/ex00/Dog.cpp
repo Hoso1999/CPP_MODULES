@@ -5,12 +5,14 @@ Dog::Dog( void )
 {}
 
 Dog::Dog( const Dog& dog )
-    : Animal(dog.type)
-{}
+{
+    *this = dog;
+}
 
 Dog& Dog::operator=( const Dog& dog )
 {
-    type = dog.type;
+    if (this != &dog)
+        type = dog.type;
     return *this;
 }
 

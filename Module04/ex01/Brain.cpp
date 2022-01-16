@@ -18,14 +18,16 @@ Brain::Brain( const std::string ideas[100] )
 Brain::Brain( const Brain& brain )
 {
     std::cout << "Copy Brain" << std::endl;
-    for (size_t i = 0; i < 100; ++i)
-        ideas[i] = brain.ideas[i];
+    *this = brain;
 }
 
 Brain& Brain::operator=( const Brain& brain )
 {
-    for (size_t i = 0; i < 100; ++i)
-        ideas[i] = brain.ideas[i];
+    if (this != &brain)
+    {
+        for (size_t i = 0; i < 100; ++i)
+            ideas[i] = brain.ideas[i];
+    }
     return *this;
 }
 

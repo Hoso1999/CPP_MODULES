@@ -9,12 +9,14 @@ Animal::Animal( const std::string& type )
 {}
 
 Animal::Animal( const Animal& animal )
-    : type(animal.type)
-{}
+{
+    *this = animal;
+}
 
 Animal& Animal::operator=( const Animal& animal )
 {
-    type = animal.type;
+    if (this != &animal)
+        type = animal.type;
     return *this;
 }
 

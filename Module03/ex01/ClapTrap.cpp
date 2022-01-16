@@ -21,10 +21,14 @@ ClapTrap::ClapTrap( const ClapTrap& clap )
 
 ClapTrap& ClapTrap::operator=( const ClapTrap& clap )
 {
-    name = clap.name;
-    hitpoints = clap.hitpoints;
-    enegyPoints = clap.enegyPoints;
-    attackDamage = clap.attackDamage;
+    if (this != &clap)
+    {
+        name = clap.name;
+        hitpoints = clap.hitpoints;
+        enegyPoints = clap.enegyPoints;
+        attackDamage = clap.attackDamage;
+    }
+    return *this;
 }
 
 ClapTrap::~ClapTrap()

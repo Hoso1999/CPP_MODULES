@@ -21,7 +21,8 @@ Fixed::Fixed( const Fixed& fixed)
 
 Fixed& Fixed::operator=( const Fixed& fixed)
 {
-    this->rawBits = fixed.rawBits;
+    if (this != &fixed)
+        this->rawBits = fixed.rawBits;
     return *this;
 }
 

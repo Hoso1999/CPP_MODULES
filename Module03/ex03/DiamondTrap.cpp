@@ -29,10 +29,13 @@ DiamondTrap::DiamondTrap( const DiamondTrap& diamond )
 
 DiamondTrap& DiamondTrap::operator=( const DiamondTrap& diamond )
 {
-    name = diamond.name;
-    hitpoints = diamond.hitpoints;
-    enegyPoints = diamond.enegyPoints;
-    attackDamage = diamond.attackDamage;
+    if (this != &diamond)
+    {
+        name = diamond.name;
+        hitpoints = diamond.hitpoints;
+        enegyPoints = diamond.enegyPoints;
+        attackDamage = diamond.attackDamage;
+    }
     return *this;
 }
 

@@ -1,7 +1,7 @@
 #include "Beruaucrat.hpp"
 
-Beuraucrat::Beuraucrat( int grade)
-    : name("Beuraucrat")
+Beuraucrat::Beuraucrat( const std::string& name, int grade)
+    : name(name), grade(grade)
 {
     if (grade > 150)
         throw Beuraucrat::GradeTooLowException();
@@ -10,14 +10,31 @@ Beuraucrat::Beuraucrat( int grade)
     this->grade = grade;
 }
 
-const std::string Beuraucrat::GradeTooHighException( void )
+Beuraucrat::Beuraucrat( void )
+    : name("Beuraucrat"), grade(1)
+{}
+
+Beuraucrat::Beuraucrat( const Beuraucrat& beuraucrat )
+    : name(beuraucrat.name)
 {
-    return "Grade is too high";
+    *this = beuraucrat;
 }
 
-const std::string Beuraucrat::GradeTooLowException( void )
+Beuraucrat& Beuraucrat::operator=( const Beuraucrat& beuraucrat )
 {
-    return "Grade is too low";
+    if (this != &beuraucrat)
+        grade = beuraucrat.grade;
+    return *this;
+}
+
+const char* Beuraucrat::GradeTooHighException::what( void ) const throw()
+{
+    return "BeuraucException: Grade is too high";
+}
+
+const char* Beuraucrat::GradeTooLowException::what( void ) const throw()
+{
+    return "BeuraucException: Grade is too low";
 }
 
 void Beuraucrat::increment( void )

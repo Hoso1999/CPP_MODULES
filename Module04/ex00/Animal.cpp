@@ -14,7 +14,8 @@ Animal::Animal( const Animal& animal )
 
 Animal& Animal::operator=( const Animal& animal )
 {
-    type = animal.type;
+    if (this != &animal)
+        type = animal.type;
     return *this;
 }
 

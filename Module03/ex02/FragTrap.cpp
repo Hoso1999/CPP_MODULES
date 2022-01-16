@@ -27,10 +27,13 @@ FragTrap::FragTrap( const FragTrap& frag )
 
 FragTrap& FragTrap::operator=( const FragTrap& frag )
 {
-    name = frag.name;
-    hitpoints = frag.hitpoints;
-    enegyPoints = frag.enegyPoints;
-    attackDamage = frag.attackDamage;
+    if (this != &frag)
+    {
+        name = frag.name;
+        hitpoints = frag.hitpoints;
+        enegyPoints = frag.enegyPoints;
+        attackDamage = frag.attackDamage;
+    }
     return *this;
 }
 

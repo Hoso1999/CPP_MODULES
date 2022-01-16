@@ -5,12 +5,14 @@ Cat::Cat( void )
 {}
 
 Cat::Cat( const Cat& cat )
-    : Animal(cat.type)
-{}
+{
+    *this = cat;
+}
 
 Cat& Cat::operator=( const Cat& cat )
 {
-    type = cat.type;
+    if (this != &cat)
+        type = cat.type;
     return *this;
 }
 

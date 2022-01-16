@@ -33,14 +33,17 @@ void MateriaSource::learnMateria( AMateria* materia )
 
 MateriaSource& MateriaSource::operator=( const MateriaSource& materiaSource )
 {
-    for (size_t i = 0; i < 4; ++i)
+    if (this != &materiaSource)
     {
-        if (materia[i])
-            delete materia[i];
-        materia[i] = nullptr;
+        for (size_t i = 0; i < 4; ++i)
+        {
+            if (materia[i])
+                delete materia[i];
+            materia[i] = nullptr;
+        }
+        for (size_t i = 0; i < 4; ++i)
+            materia[i] = materiaSource.materia[i];
     }
-    for (size_t i = 0; i < 4; ++i)
-        materia[i] = materiaSource.materia[i];
     return *this;
 }
 

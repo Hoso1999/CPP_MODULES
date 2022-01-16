@@ -20,7 +20,8 @@ AMateria::AMateria( const AMateria& amateria )
 
 AMateria& AMateria::operator=( const AMateria& amateria )
 {
-    type = amateria.type;
+    if (this != &amateria)
+        type = amateria.type;
     return *this;
 }
 

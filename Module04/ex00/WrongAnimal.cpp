@@ -8,13 +8,15 @@ WrongAnimal::WrongAnimal( const std::string& type )
     : type(type)
 {}
 
-WrongAnimal::WrongAnimal( const WrongAnimal& WrongAnimal )
-    : type(WrongAnimal.type)
-{}
-
-WrongAnimal& WrongAnimal::operator=( const WrongAnimal& WrongAnimal )
+WrongAnimal::WrongAnimal( const WrongAnimal& wrongAnimal )
 {
-    type = WrongAnimal.type;
+    *this = wrongAnimal;
+}
+
+WrongAnimal& WrongAnimal::operator=( const WrongAnimal& wrongAnimal )
+{
+    if (this != &wrongAnimal)
+        type = wrongAnimal.type;
     return *this;
 }
 

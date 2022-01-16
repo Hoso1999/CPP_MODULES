@@ -27,11 +27,13 @@ ScavTrap::ScavTrap( const ScavTrap& scav )
 
 ScavTrap& ScavTrap::operator=( const ScavTrap& scav )
 {
-    name = scav.name;
-    hitpoints = scav.hitpoints;
-    enegyPoints = scav.enegyPoints;
-    attackDamage = scav.attackDamage;
-    std::cout << "ScavTrap < " << name << " > is created." << std::endl;
+    if (this != &scav)
+    {
+        name = scav.name;
+        hitpoints = scav.hitpoints;
+        enegyPoints = scav.enegyPoints;
+        attackDamage = scav.attackDamage;
+    }
     return *this;
 }
 

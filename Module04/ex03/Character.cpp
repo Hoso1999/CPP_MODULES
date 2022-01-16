@@ -33,16 +33,19 @@ Character::Character( const Character& character )
 
 Character& Character::operator=( const Character& character )
 {
-    for (size_t i = 0; i < 4; ++i)
+    if (this != &character)
     {
-        if (materia[i])
+        for (size_t i = 0; i < 4; ++i)
         {
-            delete materia[i];
-            materia[i] = nullptr;
+            if (materia[i])
+            {
+                delete materia[i];
+                materia[i] = nullptr;
+            }
         }
+        for (size_t i = 0; i < 4; i++)
+            materia[i] = character.materia[i];
     }
-    for (size_t i = 0; i < 4; i++)
-        materia[i] = character.materia[i];
     return *this;
 }
 

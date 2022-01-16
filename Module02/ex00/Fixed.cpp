@@ -14,8 +14,11 @@ Fixed::Fixed( const Fixed& fixed)
 
 Fixed& Fixed::operator=( const Fixed& fixed)
 {
-    std::cout << "Assignation operator called" << std::endl;
-    this->rawBits = fixed.getRawBits();
+    if (this != &fixed)
+    {
+        std::cout << "Assignation operator called" << std::endl;
+        this->rawBits = fixed.getRawBits();
+    }
     return *this;
 }
 
