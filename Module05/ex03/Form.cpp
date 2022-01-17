@@ -72,14 +72,15 @@ bool Form::isSigned( void ) const
     return _signed;
 }
 
-  std::ostream& operator<<( std::ostream& os, const Form& form )
-  {
+std::ostream& operator<<( std::ostream& os, const Form& form )
+{
     os << "< " << form.getName() << " > < " << form.getSignGrade();
     std::cout << ", " << form.getExecuteGrade() << " > is";
     if (!form.isSigned())
         os << " not";
     os << " signed" << std::endl;
     return os;
-  }
+}
+
 
 Form::~Form() {}

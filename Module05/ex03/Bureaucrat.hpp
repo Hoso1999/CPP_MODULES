@@ -1,39 +1,47 @@
-#ifndef BEURAUCRAT_HPP
-#define BEURAUCRAT_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
 
-class Beuraucrat
+
+class Form;
+
+class Bureaucrat
 {
-    Beuraucrat( void );
+    Bureaucrat( void );
     const std::string name;
     int grade;
     public:
-        Beuraucrat( const std::string&, int );
-        Beuraucrat( const Beuraucrat& );
-        ~Beuraucrat();
+        Bureaucrat( const std::string&, int );
+        Bureaucrat( const Bureaucrat& );
+        virtual ~Bureaucrat();
 
         struct GradeTooHighException : std::exception
         {
             const char *what( void ) const throw();
         };
+
         struct GradeTooLowException : std::exception
         {
             const char *what( void ) const throw();
         };
-
+        
         const std::string& getName( void ) const;
         int getGrade( void ) const;
 
         void increment( void );
         void decrement( void );
 
-        Beuraucrat& operator=( const Beuraucrat& );
+        void signForm( Form& ) const;
+        void executeForm( Form const& );
+
+        Bureaucrat& operator=( const Bureaucrat& );
 };
 
-    std::ostream& operator<<(std::ostream &, const Beuraucrat& );
+    std::ostream& operator<<( std::ostream&, const Bureaucrat& );
 
 
 #endif

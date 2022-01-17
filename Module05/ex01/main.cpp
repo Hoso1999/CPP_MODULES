@@ -1,9 +1,9 @@
-#include "Beruaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 
 int main()
 {
-   Beuraucrat b("bb", 30);
+   Bureaucrat b("bb", 30);
    Form f("f", 20, 10);
 
    b.signForm(f);

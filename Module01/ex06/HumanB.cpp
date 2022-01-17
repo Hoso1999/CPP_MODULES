@@ -10,7 +10,6 @@ HumanB::HumanB( const std::string& name )
 
 void HumanB::setWeapon(const Weapon& weapon)
 {
-    // Weapon w(weapon);
     this->weapon = &weapon;
 }
 

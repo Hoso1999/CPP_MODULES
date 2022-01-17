@@ -11,10 +11,11 @@ class Bureaucrat;
 class Form
 {
     Form( void );
-    const std::string name;
-    const int signGrade;
-    const int executeGrade;
-    bool _signed;
+    protected:
+        const std::string name;
+        const int signGrade;
+        const int executeGrade;
+        bool _signed;
     public:
         Form( const std::string&, const int, const int );
         Form( const Form& );
@@ -48,6 +49,7 @@ class Form
         void beSigned( const Bureaucrat& );
 
         Form& operator=( const Form& );
+        virtual void execute( Bureaucrat const& ) const = 0;
         
 };
 

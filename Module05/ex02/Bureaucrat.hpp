@@ -1,5 +1,5 @@
-#ifndef BEURAUCRAT_HPP
-#define BEURAUCRAT_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
@@ -9,15 +9,15 @@
 
 class Form;
 
-class Beuraucrat
+class Bureaucrat
 {
-    Beuraucrat( void );
+    Bureaucrat( void );
     const std::string name;
     int grade;
     public:
-        Beuraucrat( const std::string&, int );
-        Beuraucrat( const Beuraucrat& );
-        virtual ~Beuraucrat();
+        Bureaucrat( const std::string&, int );
+        Bureaucrat( const Bureaucrat& );
+        virtual ~Bureaucrat();
 
         struct GradeTooHighException : std::exception
         {
@@ -36,11 +36,12 @@ class Beuraucrat
         void decrement( void );
 
         void signForm( Form& ) const;
+        void executeForm( Form const& );
 
-        Beuraucrat& operator=( const Beuraucrat& );
+        Bureaucrat& operator=( const Bureaucrat& );
 };
 
-    std::ostream& operator<<(std::ostream &, const Beuraucrat& );
+    std::ostream& operator<<( std::ostream&, const Bureaucrat& );
 
 
 #endif
