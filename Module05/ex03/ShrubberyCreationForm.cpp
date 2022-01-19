@@ -14,6 +14,11 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& sform
     *this = sform;
 }
 
+Form* ShrubberyCreationForm::copy( void ) const
+{
+    return new ShrubberyCreationForm(*this);
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreationForm& sform )

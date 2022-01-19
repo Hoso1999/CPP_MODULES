@@ -16,6 +16,7 @@ class PresidentialPardonForm : public Form
         const std::string& getTarget( void ) const;
 
         void execute( Bureaucrat const& ) const;
+        Form* copy( void ) const;
 
         PresidentialPardonForm& operator=( const PresidentialPardonForm& );
 };

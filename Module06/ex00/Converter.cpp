@@ -85,7 +85,7 @@ void Converter::findType( const std::string& literal )
         type = "double";
     else if (literal == "inff" || literal == "+inff" || literal == "-inff" || literal == "nanf")
         type = "float";
-    else if (literal.length() >= 2 && literal.at(literal.length() - 1) == 'f')
+    else if (literal.length() > 2 && literal.at(literal.length() - 1) == 'f')
         type = "float";
     else if (literal.length() >= 2 && literal.find('.') != std::string::npos)
         type = "double";
@@ -114,7 +114,7 @@ void Converter::print( int num ) const
     else
         std::cout << static_cast<char>(num) << std::endl;
     std::cout << "int: " << num << std::endl;
-    std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
+    std::cout << "float: " << static_cast<float>(num) << ".0f" << std::endl;
     std::cout << "double: " << static_cast<double>(num) << std::endl;
 }
 
@@ -126,32 +126,60 @@ void Converter::print( char c ) const
     else
         std::cout << "'" << c << "'" << std::endl;
     std::cout << "int: " << static_cast<int>(c) << std::endl;
-    std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
     std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
 
 void Converter::print( float num ) const
 {
-    if (literal == "nan" || literal == "inf" || literal == "+inf" || literal == "-inf")
+    if (literal == "nanf" || literal == "inff" || literal == "+inff" || literal == "-inff")
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << literal << std::endl;
+        std::string lit(literal);
+        lit.pop_back();
+        std::cout << "double: " << lit << std::endl;
     }
     else
     {
         std::cout << "char: ";
-        if (num < 0f || num > 127)
-    
+        if (num < 0.0f || num > 127.0f)
+            std::cout << "impossible" << std::endl;
+        else if (num >= 0 && num < 32)
+            std::cout << "Non displayable" << std::endl;
+        else
+            std::cout << static_cast<char>(num) << std::endl;
+        std::cout << "int: " << static_cast<int>(num) << std::endl;
+        std::cout << "float: " << num << "f" << std::endl;
+        std::cout << "double: " << static_cast<double>(num) << std::endl;
     }
-    // std::cout << "char: ";
-    // if (num >= 0 && num < 32)
-    //     std::cout << "Non displayable" << std::endl;
-    // else
-    //     std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
-    // std::cout << "int: " << static_cast<int>(num) << std::endl;
-    // std::cout << "float: " << static_cast<float>(num) << std::endl;
-    // std::cout << "double: " << static_cast<double>(num) << std::endl;
 }
+
+void Converter::print( double num ) const
+{
+    if (literal == "nan" || literal == "inf" || literal == "+inf" || literal == "-inf")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << literal << "f" << std::endl;
+        std::cout << "double: " << literal << std::endl;
+    }
+    else
+    {
+        std::cout << "char: ";
+        if (num < 0.0 || num > 127.0)
+            std::cout << "impossible" << std::endl;
+        else if (num >= 0 && num < 32)
+            std::cout << "Non displayable" << std::endl;
+        else
+            std::cout << static_cast<char>(num) << std::endl;
+        std::cout << "int: " << static_cast<int>(num) << std::endl;
+        std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
+        std::cout << "double: " << num << std::endl;
+    }
+}
+
 
 
 void Converter::print( void ) const
@@ -177,13 +205,14 @@ void Converter::print( void ) const
         print(num);
     }
     else
-        print("impossible");
+    {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << "impossible" << std::endl;
+        std::cout << "double: " << "impossible" << std::endl;
+    }
 }
 
-void Converter::print( const std::string& ) const
-{
-
-}
 
 Converter::Converter( const std::string& literal )
 {

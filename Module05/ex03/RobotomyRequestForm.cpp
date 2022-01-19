@@ -2,16 +2,16 @@
 
 
 RobotomyRequestForm::RobotomyRequestForm( const std::string& target )
-    : Form("robotomy request", 72, 45), target(target)
+    : Form("Robotomy Request", 72, 45), target(target)
 {}
 
 RobotomyRequestForm::RobotomyRequestForm( void )
-    : Form("robotomy request", 72, 45), target("robo_request")
+    : Form("Robotomy Request", 72, 45), target("robo_request")
 {}
 
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& robo )
-    : Form("robotomy request", 72, 45)
+    : Form("Robotomy Request", 72, 45)
 {
     *this = robo;
 }
@@ -21,6 +21,11 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm& 
     if (this != &robo)
         target = robo.target;
     return *this;
+}
+
+Form* RobotomyRequestForm::copy( void ) const
+{
+    return new RobotomyRequestForm(*this);
 }
 
 void RobotomyRequestForm::execute( Bureaucrat const& b ) const

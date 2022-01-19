@@ -46,8 +46,17 @@ Account::~Account()
 
 void	Account::_displayTimestamp( void )
 {
-    time_t t = std::time(nullptr);
-    std::cout << "[" << t << "] ";
+	std::chrono::time_point<std::chrono::system_clock> now;
+    now = std::chrono::system_clock::now();
+	std::time_t time_now = std::chrono::system_clock::to_time_t(now);
+
+	tm utc_time = *localtime(&time_now);
+	std::cout << std::setfill('0') << "[ " << (utc_time.tm_year + 1900);
+    std::cout << std::setw(2) << utc_time.tm_mon;
+    std::cout << std::setw(2) << utc_time.tm_mday << "_";
+    std::cout << std::setw(2) << utc_time.tm_hour;
+    std::cout << std::setw(2) << utc_time.tm_min;
+    std::cout << std::setw(2) << utc_time.tm_sec << " ] ";		
 }
 
 void Account::displayAccountsInfos()
@@ -87,7 +96,6 @@ bool Account::makeWithdrawal( int withdrawal )
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "p_amount:" << this->_amount << ";";
-    ++Account::_totalNbWithdrawals;
     this->_amount -= withdrawal;
     if (this->checkAmount())
         std::cout << "withdrawal:" << withdrawal << ";";
@@ -97,6 +105,7 @@ bool Account::makeWithdrawal( int withdrawal )
         this->_amount += withdrawal;
         return false;
     }
+    ++Account::_totalNbWithdrawals;
     Account::_totalAmount -= withdrawal;
     ++this->_nbWithdrawals;
     std::cout << "amount:" << this->_amount << ";";

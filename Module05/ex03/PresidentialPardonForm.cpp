@@ -14,6 +14,11 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& p 
     *this = p;
 }
 
+Form* PresidentialPardonForm::copy( void ) const
+{
+    return new PresidentialPardonForm(*this);
+}
+
 const std::string& PresidentialPardonForm::getTarget( void ) const
 {
     return target;

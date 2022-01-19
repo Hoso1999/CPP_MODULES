@@ -12,12 +12,6 @@ int main(int argc, char** argv)
     }
     std::string literal = static_cast<std::string>(argv[1]);
     Converter convertor(literal);
-    // convertor.print();
-    // convertor.check();
-    // int num_int = std::stoi(literal);
-    // int num_double = std::stoi(literal);
-    std::cout << "type is " << convertor.getType() << std::endl;
-
-    // std::cout << "int: " << num_int << std::endl;
+    convertor.print();
     return 0;
 }

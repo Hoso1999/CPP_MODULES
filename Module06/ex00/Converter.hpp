@@ -25,7 +25,6 @@ class Converter
         void print( int ) const;
         void print( float ) const;
         void print( double ) const;
-        void print( const std::string& ) const;
         
 
         Converter& operator=(const Converter& );

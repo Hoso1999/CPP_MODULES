@@ -17,6 +17,7 @@ class ShrubberyCreationForm : public Form
         void execute( Bureaucrat const& ) const;
 
         const std::string& getTarget( void ) const;
+        Form* copy( void ) const;
 
         ShrubberyCreationForm& operator=( const ShrubberyCreationForm& );
 };

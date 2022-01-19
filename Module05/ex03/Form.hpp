@@ -49,6 +49,7 @@ class Form
         void beSigned( const Bureaucrat& );
 
         Form& operator=( const Form& );
+        virtual Form* copy( void ) const = 0;
         virtual void execute( Bureaucrat const& ) const = 0;
         
 };
