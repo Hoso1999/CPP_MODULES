@@ -17,11 +17,11 @@ class Bureaucrat
 
         struct GradeTooHighException : std::exception
         {
-            const char *what( void ) const throw();
+            virtual const char *what( void ) const throw();
         };
         struct GradeTooLowException : std::exception
         {
-            const char *what( void ) const throw();
+            virtual const char *what( void ) const throw();
         };
 
         const std::string& getName( void ) const;

@@ -18,8 +18,8 @@ class ClapTrap
         ~ClapTrap();
 
         void attack( std::string const& );
-        void takeDamage(unsigned int );
-        void beRepaired(unsigned int );
+        void takeDamage( unsigned int );
+        void beRepaired( unsigned int );
 
         ClapTrap& operator=( const ClapTrap& );
 

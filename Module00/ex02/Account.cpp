@@ -6,22 +6,22 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-int Account::getNbAccounts()
+int Account::getNbAccounts( void )
 {
     return Account::_nbAccounts;
 }
 
-int Account::getTotalAmount()
+int Account::getTotalAmount( void )
 {
     return Account::_totalAmount;
 }
 
-int Account::getNbDeposits()
+int Account::getNbDeposits( void )
 {
     return Account::_totalNbDeposits;
 }
 
-int Account::getNbWithdrawals()
+int Account::getNbWithdrawals( void )
 {
     return Account::_totalNbWithdrawals;
 }
@@ -51,15 +51,15 @@ void	Account::_displayTimestamp( void )
 	std::time_t time_now = std::chrono::system_clock::to_time_t(now);
 
 	tm utc_time = *localtime(&time_now);
-	std::cout << std::setfill('0') << "[ " << (utc_time.tm_year + 1900);
+	std::cout << std::setfill('0') << "[" << (utc_time.tm_year + 1900);
     std::cout << std::setw(2) << utc_time.tm_mon;
     std::cout << std::setw(2) << utc_time.tm_mday << "_";
     std::cout << std::setw(2) << utc_time.tm_hour;
     std::cout << std::setw(2) << utc_time.tm_min;
-    std::cout << std::setw(2) << utc_time.tm_sec << " ] ";		
+    std::cout << std::setw(2) << utc_time.tm_sec << "] ";		
 }
 
-void Account::displayAccountsInfos()
+void Account::displayAccountsInfos( void )
 {
     Account::_displayTimestamp();
     std::cout << "accounts:" << Account::getNbAccounts() << ";";
@@ -82,7 +82,7 @@ void Account::makeDeposit( int deposit )
     std::cout << "nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
-void Account::displayStatus() const
+void Account::displayStatus( void ) const
 {
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";

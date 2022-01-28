@@ -1,15 +1,15 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook( void )
     : top(-1)
 {
 }
-int PhoneBook::size()
+int PhoneBook::size( void )
 {
     return this->top + 1;
 }
 
-void PhoneBook::add(Contact contact)
+void PhoneBook::add( Contact contact )
 {
     ++this->top;
     if (this->top > 7)
@@ -21,7 +21,7 @@ void PhoneBook::add(Contact contact)
     this->contacts[this->top].setDarkestSecret(contact.getDarkestSecret());
 }
 
-void PhoneBook::print()
+void PhoneBook::print( void )
 {
     std::cout << std::setfill(' ') << std::setw(13) << "index | ";
     std::cout << std::setfill(' ') << std::setw(13) << "first name | ";
@@ -61,7 +61,7 @@ void PhoneBook::print()
     }
 }
 
-void PhoneBook::print(int index)
+void PhoneBook::print( int index )
 {
     if (index > this->top)
         return ;

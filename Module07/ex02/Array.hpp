@@ -14,9 +14,9 @@ class Array
         Array( const Array& );
         ~Array();
 
-        struct OutOfRange : public std::exception
+        struct OutOfRange : std::exception
         {
-            const char* what() const throw();
+            virtual const char* what() const throw();
         };
 
         unsigned int size( void ) const;

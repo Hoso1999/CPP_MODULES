@@ -2,6 +2,18 @@
 
 Intern::Intern( void ) {}
 
+Intern::Intern( const Intern& i )
+{
+    *this = i;
+}
+
+Intern& Intern::operator=( const Intern& i )
+{
+    if (this != &i)
+        Intern();
+    return *this;
+}
+
 Form* Intern::makeForm( const std::string dest, const std::string target )
 {
     ShrubberyCreationForm sform(target);

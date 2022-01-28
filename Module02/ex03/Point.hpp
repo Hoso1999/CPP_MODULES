@@ -19,7 +19,7 @@ class Point
         Point& operator=( const Point& );
     };
 
-    bool bsp( Point const, Point const, Point const c, Point const );
+    bool bsp( Point const, Point const, Point const, Point const );
 
 
 #endif

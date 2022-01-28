@@ -11,11 +11,11 @@ class PhoneBook
     int     top;
     Contact contacts[8];
     public:
-        PhoneBook();
-        void add(Contact contact);
-        void print();
-        void print(int);
-        int size();
+        PhoneBook( void );
+        void add( Contact );
+        void print( void );
+        void print( int );
+        int size( void );
 };
 
 

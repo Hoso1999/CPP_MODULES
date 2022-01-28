@@ -2,6 +2,56 @@
 
 Base::~Base() {}
 
+Base::Base( void ) {}
+
+Base::Base( const Base& ) {}
+
+Base& Base::operator=( const Base& b )
+{
+    if (this != &b)
+        Base();
+    return *this;
+}
+
+A::~A() {}
+
+A::A( void ) {}
+
+A::A( const A& ) {}
+
+A& A::operator=( const A& a )
+{
+    if (this != &a)
+        A();
+    return *this;
+}
+
+B::~B() {}
+
+B::B( void ) {}
+
+B::B( const B& ) {}
+
+B& B::operator=( const B& b )
+{
+    if (this != &b)
+        B();
+    return *this;
+}
+
+C::~C() {}
+
+C::C( void ) {}
+
+C::C( const C& ) {}
+
+C& C::operator=( const C& c )
+{
+    if (this != &c)
+        C();
+    return *this;
+}
+
 Base* generate(void)
 {
     int num = std::rand() % 3;

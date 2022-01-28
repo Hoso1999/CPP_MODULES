@@ -4,6 +4,25 @@ Span::Span( unsigned int N )
     : max(N), arr(0)
 {}
 
+Span::Span( void )
+    : max(0), arr(0)
+{}
+
+Span::Span( const Span& span )
+{
+    *this = span;
+}
+
+Span& Span::operator=( const Span& span )
+{
+    if (this != &span)
+    {
+        max = span.max;
+        arr = span.arr;
+    }
+    return *this;
+}
+
 void Span::addNumber( int num )
 {
     if (arr.size() == max)

@@ -10,8 +10,12 @@ class Intern
 
     public:
         Intern( void );
+        Intern( const Intern& );
         ~Intern();
+
         Form* makeForm( const std::string, const std::string );
+
+        Intern& operator=( const Intern& );
 };
 
 

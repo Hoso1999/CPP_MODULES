@@ -3,7 +3,7 @@
 
 
 template<class T>
-void swap(T& a, T& b)
+void swap( T& a, T& b )
 {
     T tmp = a;
     a = b;
@@ -11,13 +11,13 @@ void swap(T& a, T& b)
 }
 
 template<class T>
-T min(T a, T b)
+T min( T a, T b )
 {
     return (a < b) ? a : b;
 }
 
 template<class T>
-T max(T a, T b)
+T max( T a, T b )
 {
     return (a > b) ? a : b;
 }
